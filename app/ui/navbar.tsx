@@ -1,19 +1,24 @@
 "use client"
 
+// Hooks
 import { useState } from "react"
-import Logo from "./icons/logo.svg"
+import useScreenWidth from "../hooks/useScreenWidth"
+
+// SVG Icons
 import BurgerIcon from "./icons/icon-hamburger.svg"
 import CloseIcon from "./icons/icon-close.svg"
+import Logo from "./icons/logo.svg"
 
-// import useScreenWidth from "../hooks/useScreenWidth"
+// Components
 import MobileMenu from "./mobile-menu"
-import { navLinks } from "../lib/definitions"
+import Menu from "./menu"
 
-// type Props = {}
+// Types
+import type { navLinks } from "../lib/definitions"
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(true)
-  // const screenWidth = useScreenWidth()
+  const screenWidth = useScreenWidth()
 
   const handleTouch = () => setIsMenuOpen(!isMenuOpen)
 
@@ -26,16 +31,35 @@ export default function Navbar() {
 
   return (
     <header>
-      <nav className="relative flex items-center justify-between p-6">
-        <Logo />
-        <button
-          className="z-20"
-          onClick={handleTouch}
-          onTouchStart={handleTouch}
-        >
-          {!isMenuOpen ? <BurgerIcon /> : <CloseIcon />}
-        </button>
-        {isMenuOpen && <MobileMenu navLinks={navLinks} />}
+      <nav className="relative flex items-center justify-between max-sm:p-6">
+        <div className="sm:px-10 sm:py-6 lg:p-16">
+          <Logo />
+        </div>
+
+        {/* Decorative line */}
+        {screenWidth > 1024 && (
+          <div
+            aria-hidden="true"
+            className="flex-1 translate-x-8 border-[1px] border-white/15"
+          />
+        )}
+
+        {/* Mobile menu & button <= 640px */}
+        {screenWidth <= 640 && (
+          <>
+            <button
+              className="z-20"
+              onClick={handleTouch}
+              onTouchStart={handleTouch}
+            >
+              {!isMenuOpen ? <BurgerIcon /> : <CloseIcon />}
+            </button>
+            {isMenuOpen && <MobileMenu navLinks={navLinks} />}
+          </>
+        )}
+
+        {/* Tablet & PC */}
+        {screenWidth > 640 && <Menu navLinks={navLinks} />}
       </nav>
     </header>
   )
