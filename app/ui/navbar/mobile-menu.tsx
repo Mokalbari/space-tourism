@@ -1,8 +1,8 @@
-import { navLinks } from "../lib/definitions"
-import { barlowCondensed } from "./fonts"
+import { NavLink } from "../../lib/definitions"
+import { barlowCondensed } from "../fonts"
 
 type Props = {
-  navLinks: navLinks[]
+  navLinks: NavLink[]
 }
 
 export default function MobileMenu({ navLinks }: Props) {

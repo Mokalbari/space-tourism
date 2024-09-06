@@ -2,7 +2,7 @@
 
 // Hooks
 import { useState } from "react"
-import useScreenWidth from "../hooks/useScreenWidth"
+import useScreenWidth from "../../hooks/useScreenWidth"
 
 // SVG Icons
 import BurgerIcon from "./icons/icon-hamburger.svg"
@@ -14,7 +14,7 @@ import MobileMenu from "./mobile-menu"
 import Menu from "./menu"
 
 // Types
-import type { navLinks } from "../lib/definitions"
+import type { NavLink } from "../../lib/definitions"
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(true)
@@ -22,7 +22,7 @@ export default function Navbar() {
 
   const handleTouch = () => setIsMenuOpen(!isMenuOpen)
 
-  const navLinks: navLinks[] = [
+  const navLinks: NavLink[] = [
     { id: 1, link: "Home" },
     { id: 2, link: "Destination" },
     { id: 3, link: "Crew" },
@@ -49,8 +49,8 @@ export default function Navbar() {
           <>
             <button
               className="z-20"
-              onClick={handleTouch}
               onTouchStart={handleTouch}
+              aria-label={isMenuOpen ? "close menu" : "open menu"}
             >
               {!isMenuOpen ? <BurgerIcon /> : <CloseIcon />}
             </button>
