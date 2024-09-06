@@ -5,9 +5,9 @@ import { useState } from "react"
 import useScreenWidth from "../../hooks/useScreenWidth"
 
 // SVG Icons
-import BurgerIcon from "./icons/icon-hamburger.svg"
-import CloseIcon from "./icons/icon-close.svg"
-import Logo from "./icons/logo.svg"
+import BurgerIcon from "../icons/icon-hamburger.svg"
+import CloseIcon from "../icons/icon-close.svg"
+import Logo from "../icons/logo.svg"
 
 // Components
 import MobileMenu from "./mobile-menu"
@@ -22,6 +22,7 @@ export default function Navbar() {
 
   const handleTouch = () => setIsMenuOpen(!isMenuOpen)
 
+  // Lift the navLinks up when the page is ready
   const navLinks: NavLink[] = [
     { id: 1, link: "Home" },
     { id: 2, link: "Destination" },
