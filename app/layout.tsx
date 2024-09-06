@@ -14,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${barlow.className} text-sm`}>{children}</body>
+      <body className={`${barlow.className} bg-black text-sm text-white`}>
+        {children}
+      </body>
     </html>
   )
 }
