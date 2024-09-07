@@ -1,8 +1,8 @@
-// type Props = {}
+type Props = { className: string }
 import { bellefair } from "../fonts"
 import clsx from "clsx"
 
-export default function ExploreButton() {
+export default function ExploreButton({ className }: Props) {
   return (
     <button
       className={clsx(
@@ -11,6 +11,7 @@ export default function ExploreButton() {
         "px-16 sm:text-lg", // Responsive
         "after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:rounded-full", // Styles pour ::after
         "after:bg-white/10 after:transition after:ease-in-out hover:after:scale-150 hover:after:transition-transform", // Styles au hover
+        `${className}`, // Props
       )}
     >
       Explore
