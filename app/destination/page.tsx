@@ -13,7 +13,7 @@ export default function Page() {
         "before:lg:bg-destination-dsktp",
       )}
     >
-      <div className="">
+      <div className="flex flex-col items-center justify-center text-center">
         <Title />
         <PlanetInfo />
       </div>

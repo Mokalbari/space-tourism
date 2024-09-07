@@ -20,7 +20,7 @@ export default function DestinationImage({
   }
 
   return (
-    <div>
+    <div className="flex justify-center">
       {!isAbove640 && (
         <Image
           src={`/destination/image-${destination.toLowerCase()}.webp`}
