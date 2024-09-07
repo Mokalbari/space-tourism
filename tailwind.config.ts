@@ -34,6 +34,9 @@ const config: Config = {
         "home-dsktp": "url('/background-home-desktop.jpg')",
         "home-tablet": "url('/background-home-tablet.jpg')",
         "home-mobile": "url('/background-home-mobile.jpg')",
+        "destination-dsktp": "url('/background-destination-desktop.jpg')",
+        "destination-tablet": "url('/background-destination-tablet.jpg')",
+        "destination-mobile": "url('/background-destination-mobile.jpg')",
       },
       maxWidth: {
         "90p": "90%",
