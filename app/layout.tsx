@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${barlow.className} flex min-h-svh flex-col bg-home-mobile bg-cover bg-no-repeat text-sm text-white sm:bg-home-tablet lg:justify-between lg:bg-home-dsktp`}
+        className={`${barlow.className} flex min-h-svh flex-col bg-home-mobile bg-cover bg-no-repeat text-sm text-white sm:bg-home-tablet lg:justify-between lg:bg-home-dsktp xl:mx-auto xl:max-w-[2048px]`}
       >
         <Navbar />
         <div>{children}</div>
