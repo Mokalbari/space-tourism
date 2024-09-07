@@ -48,7 +48,7 @@ export default function Navbar() {
         {!isAbove640 && (
           <>
             <button
-              className="z-20"
+              className="z-30"
               onTouchStart={handleTouch}
               aria-label={isMenuOpen ? "close menu" : "open menu"}
             >
