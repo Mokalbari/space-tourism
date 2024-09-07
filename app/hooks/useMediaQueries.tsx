@@ -4,46 +4,37 @@ import { useState, useEffect } from "react"
 Ce hook permet de déterminer la taille de l'écran.
 Il prend deux breakpoints : 1024 et 640 & permet d'ajuster le css en fonction
 Ce hook retourne ces deux breakpoints à utiliser
-*/
 
-/* Le debouncer est là pour éviter les update de state inutiles
-entre les différents breakpoints.
-La valeur appelée 5ms est suffisament basse pour que
-la page soit mise à jour rapidement après un resize du window
+Ce hook se base sur l'API matchMedia qui permet d'écouter les redimensionnement
+uniquement lorsque les breakpoints sont franchis.
 */
-
-const debounce = (fn: () => void, delay: number) => {
-  let timeoutId: NodeJS.Timeout
-  return () => {
-    if (timeoutId) {
-      clearTimeout(timeoutId)
-    }
-    timeoutId = setTimeout(() => {
-      fn()
-    }, delay)
-  }
-}
 
 export function useMediaQueries() {
   const [isAbove1024, setIsAbove1024] = useState(false)
   const [isAbove640, setIsAbove640] = useState(false)
 
   useEffect(() => {
-    const updateMediaQuery = () => {
-      setIsAbove1024(window.matchMedia("(min-width: 1024px)").matches)
-      setIsAbove640(window.matchMedia("(min-width: 640px)").matches)
+    // Définir ici les breakpoints nécessaires en fonction de l'app
+    const mediaQuery1024 = window.matchMedia("(min-width: 1024px)")
+    const mediaQuery640 = window.matchMedia("(min-width: 640px)")
+
+    // Update initial de la state
+    setIsAbove1024(mediaQuery1024.matches)
+    setIsAbove640(mediaQuery640.matches)
+
+    // Gestionnaire d'événement
+    const handleMediaQueryChange = () => {
+      setIsAbove1024(mediaQuery1024.matches)
+      setIsAbove640(mediaQuery640.matches)
     }
 
-    // Debounced version of updateMediaQuery
-    const debouncedUpdateMediaQuery = debounce(updateMediaQuery, 5)
+    mediaQuery1024.addEventListener("change", handleMediaQueryChange)
+    mediaQuery640.addEventListener("change", handleMediaQueryChange)
 
-    // Initial check
-    updateMediaQuery()
-
-    window.addEventListener("resize", debouncedUpdateMediaQuery)
-
+    // Cleanup
     return () => {
-      window.removeEventListener("resize", debouncedUpdateMediaQuery)
+      mediaQuery1024.removeEventListener("change", handleMediaQueryChange)
+      mediaQuery640.removeEventListener("change", handleMediaQueryChange)
     }
   }, [])
 
