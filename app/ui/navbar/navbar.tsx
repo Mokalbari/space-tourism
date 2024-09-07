@@ -2,7 +2,7 @@
 
 // Hooks
 import { useState } from "react"
-import useScreenWidth from "../../hooks/useScreenWidth"
+import { useMediaQueries } from "@/app/hooks/useMediaQueries"
 
 // SVG Icons
 import BurgerIcon from "../icons/icon-hamburger.svg"
@@ -17,12 +17,11 @@ import Menu from "./menu"
 import type { NavLink } from "../../lib/definitions"
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(true)
-  const screenWidth = useScreenWidth()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { isAbove1024, isAbove640 } = useMediaQueries()
 
   const handleTouch = () => setIsMenuOpen(!isMenuOpen)
 
-  // Lift the navLinks up when the page is ready
   const navLinks: NavLink[] = [
     { id: 1, link: "Home" },
     { id: 2, link: "Destination" },
@@ -38,7 +37,7 @@ export default function Navbar() {
         </div>
 
         {/* Decorative line */}
-        {screenWidth > 1024 && (
+        {isAbove1024 && (
           <div
             aria-hidden="true"
             className="flex-1 translate-x-8 border-[1px] border-white/15"
@@ -46,7 +45,7 @@ export default function Navbar() {
         )}
 
         {/* Mobile menu & button <= 640px */}
-        {screenWidth <= 640 && (
+        {!isAbove640 && (
           <>
             <button
               className="z-20"
@@ -60,7 +59,7 @@ export default function Navbar() {
         )}
 
         {/* Tablet & PC */}
-        {screenWidth > 640 && <Menu navLinks={navLinks} />}
+        {isAbove640 && <Menu navLinks={navLinks} />}
       </nav>
     </header>
   )

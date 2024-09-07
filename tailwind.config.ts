@@ -28,6 +28,11 @@ const config: Config = {
         wider: "2px",
         widest: "4px",
       },
+      backgroundImage: {
+        "home-dsktp": "url('/public/background-home-desktop.jpg')",
+        "home-tablet": "url('/public/background-home-tablet.jpg')",
+        "home-mobile": "url('/public/background-home-mobile.jpg')",
+      },
     },
   },
   plugins: [],
