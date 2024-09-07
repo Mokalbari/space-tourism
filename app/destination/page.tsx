@@ -13,7 +13,7 @@ export default function Page() {
         "before:lg:bg-destination-dsktp",
       )}
     >
-      <div className="flex flex-col items-center justify-center text-center">
+      <div className="mx-auto flex max-w-90p flex-col items-center justify-center text-center sm:max-w-prose sm:items-start">
         <Title />
         <PlanetInfo />
       </div>

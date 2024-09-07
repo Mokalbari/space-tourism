@@ -19,32 +19,23 @@ export default function DestinationImage({
     large: 480,
   }
 
+  const getSize = () => {
+    if (isAbove1024) return imageSizes.large
+    if (isAbove640) return imageSizes.medium
+    return imageSizes.small
+  }
+
+  const imageSize = getSize()
+
   return (
     <div className="flex justify-center">
-      {!isAbove640 && (
-        <Image
-          src={`/destination/image-${destination.toLowerCase()}.webp`}
-          width={imageSizes.small}
-          height={imageSizes.small}
-          alt={currentDestination.name}
-        />
-      )}
-      {isAbove640 && !isAbove1024 && (
-        <Image
-          src={`/destination/image-${destination.toLowerCase()}.webp`}
-          width={imageSizes.medium}
-          height={imageSizes.medium}
-          alt={currentDestination.name}
-        />
-      )}
-      {isAbove1024 && (
-        <Image
-          src={`/destination/image-${destination.toLowerCase()}.webp`}
-          width={imageSizes.large}
-          height={imageSizes.large}
-          alt={currentDestination.name}
-        />
-      )}
+      <Image
+        src={`/destination/image-${destination.toLowerCase()}.webp`}
+        width={imageSize}
+        height={imageSize}
+        alt={currentDestination.name}
+        sizes="(min-width: 1024px) 50vw, 100vw"
+      />
     </div>
   )
 }

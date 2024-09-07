@@ -20,7 +20,7 @@ export default function DestinationCard({
   return (
     <div>
       <ul
-        className={`${barlowCondensed.className} mt-14 flex justify-center gap-8 uppercase tracking-wider`}
+        className={`${barlowCondensed.className} mt-14 flex justify-center gap-8 uppercase tracking-wider sm:text-xs`}
       >
         {links.map(link => (
           <li
@@ -35,14 +35,16 @@ export default function DestinationCard({
           </li>
         ))}
       </ul>
-      <h2 className={`${bellefair.className} mt-6 text-xl uppercase`}>
+      <h2
+        className={`${bellefair.className} mt-6 text-xl uppercase sm:text-2xl`}
+      >
         {currentDestination.name}
       </h2>
-      <p className="text-2xs leading-6 text-blue">
+      <p className="text-2xs leading-6 text-blue sm:text-xs">
         {currentDestination.description}
       </p>
       <hr className="mt-6 border-white/25" />
-      <div className="mt-6 flex flex-col">
+      <div className="mt-6 flex flex-col items-center justify-around sm:flex-row">
         <div className="uppercase">
           <div
             className={`${barlowCondensed.className} text-3xs tracking-wider text-blue`}
