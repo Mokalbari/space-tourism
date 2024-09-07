@@ -2,6 +2,7 @@
 
 // Hooks
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import { useMediaQueries } from "@/app/hooks/useMediaQueries"
 
 // SVG Icons
@@ -23,11 +24,13 @@ export default function Navbar() {
   const handleTouch = () => setIsMenuOpen(!isMenuOpen)
 
   const navLinks: NavLink[] = [
-    { id: 1, link: "Home" },
-    { id: 2, link: "Destination" },
-    { id: 3, link: "Crew" },
-    { id: 4, link: "Technology" },
+    { id: 1, link: "Home", path: "/" },
+    { id: 2, link: "Destination", path: "/destination" },
+    { id: 3, link: "Crew", path: "/crew" },
+    { id: 4, link: "Technology", path: "/technology" },
   ]
+
+  const pathname = usePathname()
 
   return (
     <header>
@@ -54,12 +57,14 @@ export default function Navbar() {
             >
               {!isMenuOpen ? <BurgerIcon /> : <CloseIcon />}
             </button>
-            {isMenuOpen && <MobileMenu navLinks={navLinks} />}
+            {isMenuOpen && (
+              <MobileMenu navLinks={navLinks} pathname={pathname} />
+            )}
           </>
         )}
 
         {/* Tablet & PC */}
-        {isAbove640 && <Menu navLinks={navLinks} />}
+        {isAbove640 && <Menu navLinks={navLinks} pathname={pathname} />}
       </nav>
     </header>
   )

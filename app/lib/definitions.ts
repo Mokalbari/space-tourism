@@ -1,6 +1,7 @@
 export interface NavLink {
   id: number
   link: string
+  path: string
 }
 
 export type DestinationsLinks = "Moon" | "Mars" | "Europa" | "Titan"
