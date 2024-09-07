@@ -31,9 +31,9 @@ const config: Config = {
         widest: "4px",
       },
       backgroundImage: {
-        "home-dsktp": "url('/public/background-home-desktop.jpg')",
-        "home-tablet": "url('/public/background-home-tablet.jpg')",
-        "home-mobile": "url('/public/background-home-mobile.jpg')",
+        "home-dsktp": "url('/background-home-desktop.jpg')",
+        "home-tablet": "url('/background-home-tablet.jpg')",
+        "home-mobile": "url('/background-home-mobile.jpg')",
       },
       maxWidth: {
         "90p": "90%",
