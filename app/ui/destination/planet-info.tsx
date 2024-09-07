@@ -11,7 +11,7 @@ export default function PlanetInfo() {
   const currentDestination = destinationInfo[destination]
 
   return (
-    <div className="mt-12 flex flex-col justify-center">
+    <div className="mt-12 flex flex-col justify-center lg:mt-28 lg:w-full lg:flex-row lg:items-center lg:justify-around lg:text-left">
       <DestinationImage
         destination={destination}
         currentDestination={currentDestination}
