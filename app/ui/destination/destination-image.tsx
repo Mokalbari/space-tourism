@@ -1,16 +1,13 @@
+"use client"
+
 import Image from "next/image"
 import { useMediaQueries } from "@/app/hooks/useMediaQueries"
-import type { DestinationData, DestinationsLinks } from "@/app/lib/definitions"
+import useDestinationStore from "@/app/lib/destination-store"
+import { destinationInfo } from "@/app/lib/destination-info"
 
-type Props = {
-  destination: DestinationsLinks
-  currentDestination: DestinationData
-}
-
-export default function DestinationImage({
-  destination,
-  currentDestination,
-}: Props) {
+export default function DestinationImage() {
+  const destination = useDestinationStore(state => state.destination)
+  const currentDestination = destinationInfo[destination]
   const { isAbove640, isAbove1024 } = useMediaQueries()
 
   const imageSizes = {

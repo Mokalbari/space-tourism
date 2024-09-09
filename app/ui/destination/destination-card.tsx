@@ -1,21 +1,17 @@
+"use client"
+
 import clsx from "clsx"
 import type { DestinationsLinks } from "@/app/lib/definitions"
-import type { DestinationData } from "@/app/lib/definitions"
 import { barlowCondensed, bellefair } from "../fonts"
+import useDestinationStore from "@/app/lib/destination-store"
+import { destinationInfo } from "@/app/lib/destination-info"
 
-type Props = {
-  setDestination: (newDestination: DestinationsLinks) => void
-  currentDestination: DestinationData
-}
+export default function DestinationCard() {
+  const destination = useDestinationStore(state => state.destination)
+  const setDestination = useDestinationStore(state => state.setDestination)
+  const currentDestination = destinationInfo[destination]
 
-export default function DestinationCard({
-  currentDestination,
-  setDestination,
-}: Props) {
   const links: DestinationsLinks[] = ["Moon", "Mars", "Europa", "Titan"]
-
-  const handleDestinationChange = (destination: DestinationsLinks) => () =>
-    setDestination(destination)
 
   return (
     <div className="lg:max-w-sm">
@@ -32,7 +28,7 @@ export default function DestinationCard({
               "border-b-4 pb-4 font-semibold text-white":
                 link === currentDestination.name,
             })}
-            onClick={handleDestinationChange(link)}
+            onClick={() => setDestination(link)}
             key={link}
           >
             {link}
