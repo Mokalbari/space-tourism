@@ -1,6 +1,6 @@
 import clsx from "clsx"
 
-import Title from "../ui/destination/title"
+import Title from "../ui/title"
 import PlanetInfo from "../ui/destination/planet-info"
 
 export default function Page() {
@@ -21,7 +21,7 @@ export default function Page() {
           "lg:max-w-screen-xl",
         )}
       >
-        <Title />
+        <Title index="01" title="Pick your destination" />
         <PlanetInfo />
       </div>
     </main>

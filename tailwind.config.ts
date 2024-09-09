@@ -37,6 +37,9 @@ const config: Config = {
         "destination-dsktp": "url('/background-destination-desktop.jpg')",
         "destination-tablet": "url('/background-destination-tablet.jpg')",
         "destination-mobile": "url('/background-destination-mobile.jpg')",
+        "crew-dsktp": "url('/background-crew-desktop.jpg')",
+        "crew-tablet": "url('/background-crew-tablet.jpg')",
+        "crew-mobile": "url('/background-crew-mobile.jpg')",
       },
       maxWidth: {
         "90p": "90%",
