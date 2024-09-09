@@ -20,7 +20,7 @@ export default function CrewCard() {
         where he pilots an F/A-18.He was a crew member of Expedition 64, and
         served as a station systems flight engineer.{" "}
       </p>
-      <Carousel className="mt-64" />
+      <Carousel className="mt-" />
     </div>
   )
 }

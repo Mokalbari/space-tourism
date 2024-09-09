@@ -15,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${barlow.className} bg-black text-white`}>
+      <body
+        className={`${barlow.className} bg-black text-white lg:overflow-y-hidden`}
+      >
         <div className="relative">
           <Navbar />
           <>{children}</>

@@ -34,7 +34,7 @@ export default function CrewImage() {
         src={"/crew/image-victor-glover.webp"}
         width={imageSize.width}
         height={imageSize.height}
-        alt="Crew member"
+        alt={"Crew member"}
       />
       <div className="absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-black to-transparent sm:hidden lg:block" />
     </div>
