@@ -22,7 +22,7 @@ export default function CrewCard() {
         {currentCrew.name}
       </h2>
       <p className="my-6 text-2xs text-blue sm:text-xs">{currentCrew.bio}</p>
-      <Carousel className="mt-60" />
+      <Carousel className="sm:mt-12 lg:mt-60" />
     </div>
   )
 }

@@ -18,7 +18,7 @@ export default function CrewImage() {
     },
     medium: {
       width: 688,
-      height: 483,
+      height: 463,
     },
     large: {
       width: 539,

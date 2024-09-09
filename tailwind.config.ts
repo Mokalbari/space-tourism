@@ -40,6 +40,9 @@ const config: Config = {
         "crew-dsktp": "url('/background-crew-desktop.jpg')",
         "crew-tablet": "url('/background-crew-tablet.jpg')",
         "crew-mobile": "url('/background-crew-mobile.jpg')",
+        "techno-dsktp": "url('/background-technology-desktop.jpg')",
+        "techno-tablet": "url('/background-technology-tablet.jpg')",
+        "techno-mobile": "url('/background-technology-mobile.jpg')",
       },
       maxWidth: {
         "90p": "90%",

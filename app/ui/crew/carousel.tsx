@@ -3,6 +3,7 @@
 import useCrewStore from "@/app/hooks/useCrewStore"
 import { useInterval } from "usehooks-ts"
 import clsx from "clsx"
+import { CrewIndex } from "@/app/lib/definitions"
 type Props = { className: string }
 
 export default function Carousel({ className }: Props) {
@@ -12,36 +13,20 @@ export default function Carousel({ className }: Props) {
 
   useInterval(increment, 5000)
 
+  const arr: CrewIndex[] = [1, 2, 3, 4]
+
   return (
     <div className={`${className} flex gap-4 lg:gap-10`}>
-      <div
-        onClick={() => setIndex(1)}
-        className={clsx(
-          "h-[10px] w-[10px] cursor-pointer rounded-full bg-slate-600 lg:h-4 lg:w-4",
-          { "bg-white": index === 1 },
-        )}
-      />
-      <div
-        onClick={() => setIndex(2)}
-        className={clsx(
-          "h-[10px] w-[10px] cursor-pointer rounded-full bg-slate-600 lg:h-4 lg:w-4",
-          { "bg-white": index === 2 },
-        )}
-      />
-      <div
-        onClick={() => setIndex(3)}
-        className={clsx(
-          "h-[10px] w-[10px] cursor-pointer rounded-full bg-slate-600 lg:h-4 lg:w-4",
-          { "bg-white": index === 3 },
-        )}
-      />
-      <div
-        onClick={() => setIndex(4)}
-        className={clsx(
-          "h-[10px] w-[10px] cursor-pointer rounded-full bg-slate-600 lg:h-4 lg:w-4",
-          { "bg-white": index === 4 },
-        )}
-      />
+      {arr.map(i => (
+        <div
+          key={i}
+          onClick={() => setIndex(i)}
+          className={clsx(
+            "h-[10px] w-[10px] cursor-pointer rounded-full bg-slate-600 lg:h-4 lg:w-4",
+            { "bg-white": index === i },
+          )}
+        />
+      ))}
     </div>
   )
 }
