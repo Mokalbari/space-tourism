@@ -3,7 +3,7 @@
 import clsx from "clsx"
 import type { DestinationsLinks } from "@/app/lib/definitions"
 import { barlowCondensed, bellefair } from "../fonts"
-import useDestinationStore from "@/app/lib/destination-store"
+import useDestinationStore from "@/app/hooks/useDestinationStore"
 import { destinationInfo } from "@/app/lib/destination-info"
 
 export default function DestinationCard() {

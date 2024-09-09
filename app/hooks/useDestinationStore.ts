@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { DestinationsLinks } from "./definitions"
+import { DestinationsLinks } from "../lib/definitions"
 
 type Store = {
   destination: DestinationsLinks

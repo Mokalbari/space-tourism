@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { CrewIndex } from "./definitions"
+import { CrewIndex } from "../lib/definitions"
 
 type Store = {
   index: CrewIndex

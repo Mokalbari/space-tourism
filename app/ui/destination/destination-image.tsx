@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { useMediaQueries } from "@/app/hooks/useMediaQueries"
-import useDestinationStore from "@/app/lib/destination-store"
+import useDestinationStore from "@/app/hooks/useDestinationStore"
 import { destinationInfo } from "@/app/lib/destination-info"
 
 export default function DestinationImage() {
