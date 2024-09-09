@@ -28,7 +28,7 @@ export default function Page() {
         className={clsx(
           "mx-auto flex max-w-90p flex-col items-center justify-center text-center",
           "sm:max-w-prose sm:items-start",
-          "lg:max-w-screen-xl lg:flex-row lg:items-center lg:justify-between lg:text-left",
+          "lg:min-h-[85vh] lg:max-w-screen-xl lg:flex-row lg:items-center lg:justify-between lg:text-left",
         )}
       >
         <CrewCard />
