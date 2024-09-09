@@ -2,8 +2,13 @@
 
 import Image from "next/image"
 import { useMediaQueries } from "@/app/hooks/useMediaQueries"
+import useCrewStore from "@/app/hooks/useCrewStore"
+import crewInfo from "@/app/lib/crew-info"
 
 export default function CrewImage() {
+  const index = useCrewStore(state => state.index)
+  const currentCrew = crewInfo[index]
+
   const { isAbove1024, isAbove640 } = useMediaQueries()
 
   const imageSizes = {
@@ -31,10 +36,10 @@ export default function CrewImage() {
   return (
     <div className="relative mt-10">
       <Image
-        src={"/crew/image-victor-glover.webp"}
+        src={currentCrew.images.webp}
         width={imageSize.width}
         height={imageSize.height}
-        alt={"Crew member"}
+        alt={currentCrew.name}
       />
       <div className="absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-black to-transparent sm:hidden lg:block" />
     </div>
