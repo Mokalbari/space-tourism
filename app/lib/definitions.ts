@@ -21,7 +21,7 @@ export type DestinationData = {
 export type CrewIndex = 1 | 2 | 3 | 4
 
 export type CrewData = {
-  id: number
+  id: CrewIndex
   name: string
   images: {
     png: string
@@ -29,4 +29,16 @@ export type CrewData = {
   }
   role: string
   bio: string
+}
+
+export type TechnologyIndex = 1 | 2 | 3
+
+export type TechnologyData = {
+  id: TechnologyIndex
+  name: string
+  images: {
+    portrait: string
+    landscape: string
+  }
+  description: string
 }
